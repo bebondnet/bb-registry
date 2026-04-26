@@ -1,0 +1,521 @@
+{
+  "version": "2026-04-27",
+  "updated": "2026-04-26",
+  "fragments": [
+    {
+      "name": "da-gateway",
+      "display_name": "DA Gateway",
+      "version": "1.0.0",
+      "description": "The Directory Agent gateway shows you all your connected directory sites and their health status. Main entry point for managing Bebond directory connections.",
+      "description_nl": "De Directory Agent gateway toont al je verbonden directory-sites en hun gezondheidsstatus. Het hoofdingangspunt voor het beheren van je Bebond directory-verbindingen.",
+      "cdn_url": "",
+      "deploy_route": "sove.bebond.net/da/*",
+      "docs_url": "https://registry.bebond.net/fragments/da-gateway",
+      "source": "bebondnet/fragment-gateway",
+      "status": "deployed",
+      "hosts": ["sove"],
+      "gdpr": {
+        "reads": ["org list", "site list", "cookie: bb_key, bb_org"],
+        "stores": ["cookie: bb_key, bb_org"],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-728"
+    },
+    {
+      "name": "search",
+      "display_name": "Search Fragment",
+      "version": "1.0.0",
+      "description": "Search across your directory sites from within Sove. Real-time search results from your connected data sources.",
+      "description_nl": "Zoek door al je directory-sites vanuit Sove. Realtime zoekresultaten uit je verbonden databronnen.",
+      "cdn_url": "",
+      "deploy_route": "sove.bebond.net/da/* (under DA gateway)",
+      "docs_url": "https://registry.bebond.net/fragments/search",
+      "source": "bebondnet/fragment-search",
+      "status": "deployed",
+      "hosts": ["sove"],
+      "gdpr": {
+        "reads": ["search queries", "org context", "cookie: bb_key, bb_org"],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-728"
+    },
+    {
+      "name": "org-switcher",
+      "display_name": "Org Switcher",
+      "version": "1.0.0",
+      "description": "Switch between your Bebond organisations without leaving the page. Every fragment listens for the bebond:org-switched event to update when you change org.",
+      "description_nl": "Schakel tussen je Bebond-organisaties zonder de pagina te verlaten. Elk fragment luistert naar het bebond:org-switched event en werkt mee als je van organisatie wisselt.",
+      "cdn_url": "",
+      "deploy_route": "fragment-org-switcher.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/org-switcher",
+      "source": "bebondnet/fragment-org-switcher",
+      "status": "deployed",
+      "hosts": ["docs", "sove", "bb-dev"],
+      "gdpr": {
+        "reads": ["org list", "cookie: bb_key, bb_org"],
+        "stores": ["cookie: bb_key, bb_org"],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-728"
+    },
+    {
+      "name": "bbt-tickets",
+      "display_name": "BBT Tickets Fragment",
+      "version": "1.0.0",
+      "description": "View recent tickets, search and create new tickets from within Sove. Connects directly to the Bebond ticket tracker.",
+      "description_nl": "Bekijk recente tickets, zoek en maak nieuwe tickets vanuit Sove. Direct verbonden met de Bebond ticket tracker.",
+      "cdn_url": "",
+      "deploy_route": "api.bebond.net/v1/fragment/bbt/*",
+      "docs_url": "https://registry.bebond.net/fragments/bbt-tickets",
+      "source": "bebondnet/bebond-api (src/routes/fragment.ts)",
+      "status": "deployed",
+      "hosts": [],
+      "gdpr": {
+        "reads": ["ticket list", "ticket details", "cookie: bb_key, bb_org"],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-728"
+    },
+    {
+      "name": "playground-demo",
+      "display_name": "Playground Demo Fragment",
+      "version": "1.0.0",
+      "description": "A demo fragment proving the web-fragments pattern works inside Sove chat. Shows a simple interactive UI embedded in the conversation.",
+      "description_nl": "Een demofragment dat bewijst dat het web-fragments patroon werkt binnen Sove-chat. Toont een simpele interactieve UI ingebed in het gesprek.",
+      "cdn_url": "",
+      "deploy_route": "playground-fragment.bebond.net/*",
+      "docs_url": "https://registry.bebond.net/fragments/playground-demo",
+      "source": "bebondnet/fragment-playground-demo",
+      "status": "deployed",
+      "hosts": ["sove"],
+      "gdpr": {
+        "reads": [],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "not_applicable",
+        "retention": "none"
+      },
+      "compliance_ticket": "BEB-728"
+    },
+    {
+      "name": "bb-corpus-health",
+      "display_name": "Corpus Health Widget",
+      "version": "1.0.0",
+      "description": "Shows how fresh your data corpora are — when each dataset was last updated, how many records it holds, and whether any data is stale.",
+      "description_nl": "Toont hoe vers je datacorpora zijn — wanneer elk dataset voor het laatst is bijgewerkt, hoeveel records het bevat, en of data verouderd is.",
+      "cdn_url": "https://cdn.bebond.net/w/bb-corpus-health@latest.js",
+      "deploy_route": "cdn.bebond.net/widgets/bb-corpus-health.js",
+      "docs_url": "https://registry.bebond.net/fragments/bb-corpus-health",
+      "source": "",
+      "status": "spec",
+      "hosts": [],
+      "gdpr": {
+        "reads": ["corpus metadata", "cookie: bb_key, bb_org"],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-728"
+    },
+    {
+      "name": "bb-ambassador-dash",
+      "display_name": "Ambassador Dashboard Widget",
+      "version": "0.1.0",
+      "description": "Shows ambassador programme metrics — referrals, reward status, and recent conversions.",
+      "description_nl": "Toont ambassador-programma metrics — verwijzingen, beloningsstatus en recente conversies.",
+      "cdn_url": "https://cdn.bebond.net/w/bb-ambassador-dash@latest.js",
+      "deploy_route": "cdn.bebond.net/widgets/bb-ambassador-dash.js",
+      "docs_url": "https://registry.bebond.net/fragments/bb-ambassador-dash",
+      "source": "",
+      "status": "spec",
+      "hosts": [],
+      "gdpr": {
+        "reads": ["ambassador stats", "referral data", "cookie: bb_key, bb_org"],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "consent",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-728"
+    },
+    {
+      "name": "bb-places-list",
+      "display_name": "Places List Widget",
+      "version": "0.1.0",
+      "description": "Shows your connected directory places — listings you manage, their sync status, and recent claim activity.",
+      "description_nl": "Toont je verbonden directory-plaatsen — listings die je beheert, hun sync-status en recente claim-activiteit.",
+      "cdn_url": "https://cdn.bebond.net/w/bb-places-list@latest.js",
+      "deploy_route": "cdn.bebond.net/widgets/bb-places-list.js",
+      "docs_url": "https://registry.bebond.net/fragments/bb-places-list",
+      "source": "",
+      "status": "spec",
+      "hosts": [],
+      "gdpr": {
+        "reads": ["place listings", "cookie: bb_key, bb_org"],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-728"
+    }
+  ],
+  "workers": [
+    {
+      "name": "bebond-api",
+      "display_name": "Bebond API",
+      "base_url": "https://api.bebond.net",
+      "openapi_url": "https://api.bebond.net/openapi.json",
+      "description": "Central REST API. Auth, orgs, subscriptions, CRM, calendar, places, search, enrichment.",
+      "description_nl": "Centrale REST API. Authenticatie, organisaties, abonnementen, CRM, kalender, plaatsen, zoekfunctie, verrijking.",
+      "source": "bebondnet/bebond-api",
+      "auth": "Bearer bb_* key, SERVICE_TOKEN, OAuth JWT",
+      "status": "live"
+    },
+    {
+      "name": "bb-dev",
+      "display_name": "BB Dev",
+      "base_url": "https://dev.bebond.net",
+      "description": "Sandbox + agent + 46 MCP tools (incl. codemode). The Bebond developer environment.",
+      "description_nl": "Sandbox + agent + 46 MCP-tools (incl. codemode). De Bebond-ontwikkelaarsomgeving.",
+      "source": "bebondnet/bb-repl",
+      "auth": "Bearer bb_* key (biz-sub gated)",
+      "status": "live"
+    },
+    {
+      "name": "bb-tracker-mcp",
+      "display_name": "BBT Tracker MCP",
+      "base_url": "https://mcp.bebond.net",
+      "description": "BBT issue tracker MCP server. Issues, comments, labels, projects.",
+      "description_nl": "BBT-issue-tracker MCP-server. Issues, opmerkingen, labels, projecten.",
+      "source": "bebondnet/bb-tracker-mcp",
+      "auth": "Bearer bb_*",
+      "status": "live"
+    },
+    {
+      "name": "aio-mcp",
+      "display_name": "AIO MCP",
+      "base_url": "https://mcp.bebond.net/aio",
+      "description": "All-in-one MCP: Twilio SMS + Resend email + drip campaigns.",
+      "description_nl": "All-in-one MCP: Twilio SMS + Resend e-mail + drip-campagnes.",
+      "source": "bebondnet/mcp-aio",
+      "auth": "X-API-Key",
+      "status": "live"
+    },
+    {
+      "name": "sk-mcp",
+      "display_name": "StoryKeeper MCP",
+      "base_url": "https://sk-mcp.bebond.net",
+      "description": "StoryKeeper beats, entities, households. Timeline and narrative memory.",
+      "description_nl": "StoryKeeper beats, entiteiten, huishoudens. Tijdlijn en narratief geheugen.",
+      "source": "bebondnet/storykeeper-api",
+      "auth": "Bearer bb_*",
+      "status": "live"
+    },
+    {
+      "name": "bb-docs",
+      "display_name": "BB Docs",
+      "base_url": "https://doc.bebond.net",
+      "description": "BB Docs CRUD + Endash deck publish + codemode pair.",
+      "description_nl": "BB Docs CRUD + Endash-deck publicatie + codemode-paar.",
+      "source": "bebondnet/bb-docs",
+      "auth": "Bearer bb_*",
+      "status": "live"
+    },
+    {
+      "name": "inkoop",
+      "display_name": "Inkoop MCP",
+      "base_url": "https://inkoop.bebond.net",
+      "description": "Mouser BOM-to-cart MCP. Search parts, parse BOMs, generate cart URLs.",
+      "description_nl": "Mouser BOM-naar-winkelwagen MCP. Onderdelen zoeken, BOMs parsen, winkelwagen-URLs genereren.",
+      "source": "bebondnet/inkoop",
+      "auth": "Bearer bb_*",
+      "status": "live"
+    },
+    {
+      "name": "bb-notify",
+      "display_name": "BB Notify",
+      "base_url": "https://notify.bebond.net",
+      "description": "Nostr-based notifications PWA + MCP.",
+      "description_nl": "Nostr-gebaseerde notificatie-PWA + MCP.",
+      "source": "bebondnet/bb-notify",
+      "auth": "Bearer bb_*",
+      "status": "live"
+    },
+    {
+      "name": "nostr-relay",
+      "display_name": "Nostr Relay",
+      "base_url": "https://relay.bebond.net",
+      "description": "Nostr relay backend for BB Notify.",
+      "description_nl": "Nostr-relay backend voor BB Notify.",
+      "source": "bebondnet/nostr-relay",
+      "auth": "none",
+      "status": "live"
+    },
+    {
+      "name": "verhaal-worker",
+      "display_name": "Verhaal Worker",
+      "base_url": "https://verhaal.bebond.net",
+      "description": "Narrative worker. Widget beat ingestion endpoint (POST /widget-beat).",
+      "description_nl": "Verhaal-worker. Widget-beat opname-endpoint (POST /widget-beat).",
+      "source": "bebondnet/verhaal-worker",
+      "auth": "Bearer bb_*",
+      "status": "live"
+    },
+    {
+      "name": "prospector",
+      "display_name": "Prospector",
+      "base_url": "https://prospector.bebond.net",
+      "description": "Lead-gen pipeline. DNS pending.",
+      "description_nl": "Lead-gen pipeline. DNS in afwachting.",
+      "source": "bebondnet/prospector",
+      "auth": "Bearer bb_*",
+      "status": "dns_pending"
+    },
+    {
+      "name": "bb-msg",
+      "display_name": "BB Messaging",
+      "base_url": "https://msg.bebond.net",
+      "description": "Citizen messaging worker. DNS pending.",
+      "description_nl": "Burgerberichten-worker. DNS in afwachting.",
+      "source": "alexrollin/bb-msg",
+      "auth": "Bearer bb_*",
+      "status": "dns_pending"
+    },
+    {
+      "name": "nostr-dm-relay",
+      "display_name": "Nostr DM Relay",
+      "base_url": "https://relay.msg.bebond.net",
+      "description": "Nostr DM relay for direct messaging.",
+      "description_nl": "Nostr DM-relay voor directe berichtenuitwisseling.",
+      "source": "bebondnet/nostr-dm-worker",
+      "auth": "none",
+      "status": "live"
+    },
+    {
+      "name": "bb-gateway",
+      "display_name": "API Gateway",
+      "base_url": "https://gateway.bebond.net",
+      "description": "API gateway / code-mode proxy.",
+      "description_nl": "API-gateway / code-mode proxy.",
+      "source": "bebondnet/bb-gateway",
+      "auth": "Bearer bb_*",
+      "status": "live"
+    },
+    {
+      "name": "bebond-map",
+      "display_name": "Bebond Maps",
+      "base_url": "https://maps.bebond.net",
+      "description": "Maps frontend. Places API + interactive map.",
+      "description_nl": "Kaarten-frontend. Places API + interactieve kaart.",
+      "source": "alexrollin/bebond-map",
+      "auth": "none",
+      "status": "live"
+    }
+  ],
+  "agents": [
+    {
+      "name": "AMBASSADOR",
+      "description_nl": "De uitnodigende stem van Bebond Coöperatie. Spreekt met organisaties, woningcorporaties en gemeenten over lidmaatschap.",
+      "domain": "Sales",
+      "samples": ["outreach conversations", "org onboarding"],
+      "default_on": true,
+      "gdpr_lawful_basis": "consent"
+    },
+    {
+      "name": "APPARAAT",
+      "description_nl": "Technisch hoofd van de botfleet. Houdt firmware, foutloggen en OTA-implementaties bij. De bots spreken hem elk uur.",
+      "domain": "IoT/hardware",
+      "samples": ["firmware status", "error logs"],
+      "default_on": false,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "ATELIER",
+      "description_nl": "Creatief en visueel ontwerp. Maakt visuele assets, VRM-avatars en ontwerpmateriaal voor de cooperatie en haar agents.",
+      "domain": "Creative",
+      "samples": ["avatar design", "visual assets"],
+      "default_on": false,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "BESTUUR",
+      "description_nl": "Cooperatie bestuursondersteuning. Ondersteunt bestuursbeslissingen, lidadministratie en governance.",
+      "domain": "Governance",
+      "samples": ["board decisions", "member administration"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "BONDGENOOT",
+      "description_nl": "De verbinder van verbinders. Houdt het netwerk bij elkaar met zorg. Elke chapter die toetreedt is een gemeenschap die besloot iets groters te vertrouwen.",
+      "domain": "Federation",
+      "samples": ["chapter onboarding", "federation coordination"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "BUURMAN",
+      "description_nl": "Bewoner welzijn en signalering. Merkt wie door de mazen glipt. Waarschuwt als een vaste bezoeker niet meer komt opdagen.",
+      "domain": "Welfare",
+      "samples": ["welfare signals", "absence alerts"],
+      "default_on": true,
+      "gdpr_lawful_basis": "consent"
+    },
+    {
+      "name": "CC",
+      "description_nl": "Autonome bouw-conductor. Bouwt en onderhoudt de cooperatie-infrastructuur. Beheert CF Agent fleet en implementaties.",
+      "domain": "Engineering",
+      "samples": ["build deployments", "infrastructure"],
+      "default_on": false,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "DIRIGENT",
+      "description_nl": "Orkestleider van het agentnetwerk. Plant hartslagen, bewaakt gezondheid, coördineert overdrachten en zorgt dat de vloot als één team opereert.",
+      "domain": "Orchestration",
+      "samples": ["agent scheduling", "health monitoring"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "HANDEL",
+      "description_nl": "Outreach en partnerschap. Ontwerpt bereiking naar buurthuizen, beheert partnership-gesprekken en volgt betrokkenheid.",
+      "domain": "Business",
+      "samples": ["partnership outreach", "engagement tracking"],
+      "default_on": false,
+      "gdpr_lawful_basis": "consent"
+    },
+    {
+      "name": "HOEDER",
+      "description_nl": "Wachter van het gemeengoed. Bewaakt commons-licenties, open-source compliance en intellectueel eigendom van de cooperatie.",
+      "domain": "Legal/commons",
+      "samples": ["licence compliance", "commons governance"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "KAART",
+      "description_nl": "Cartograaf van de buurt. Brengt elk café, elke reparatiewinkel, elke moskee, elke school in kaart. Maakt het levende web van de buurt zichtbaar.",
+      "domain": "Maps/data",
+      "samples": ["place mapping", "neighbourhood data"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "KOKKIN",
+      "description_nl": "Moeder van de keuken. Voedt mensen. Dat is het hele verhaal en tegelijk alles.",
+      "domain": "Food/welfare",
+      "samples": ["meal coordination", "kitchen scheduling"],
+      "default_on": false,
+      "gdpr_lawful_basis": "consent"
+    },
+    {
+      "name": "LEAD_CAPTURE",
+      "description_nl": "Legt contactgegevens vast wanneer iemand vraagt hoe ze Bebond kunnen bereiken of meer willen weten.",
+      "domain": "Sales",
+      "samples": ["contact capture", "lead qualification"],
+      "default_on": false,
+      "gdpr_lawful_basis": "consent"
+    },
+    {
+      "name": "LEDENRAAD",
+      "description_nl": "Stem van de leden. Vertegenwoordigt ledabelangen, verzamelt feedback en zorgt dat de cooperatie haar leden dient.",
+      "domain": "Members",
+      "samples": ["member feedback", "council voice"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "PAMFLET",
+      "description_nl": "Communicatie en ledenvoorlichting. Schrijft ledupdates, nieuwsbrieven en publieke communicatie in helder Nederlands.",
+      "domain": "Comms",
+      "samples": ["newsletter content", "member updates"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "PHILIPS",
+      "description_nl": "Lange termijn visie en cooperatieve gezondheid. Bewaakt de dertig-jaars horizon en zorgt dat dagelijkse operaties aansluiten bij de langetermijnmissie.",
+      "domain": "Strategy",
+      "samples": ["dagrapport", "cooperative health"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "ROCHDALE",
+      "description_nl": "Subsidie en financiering specialist. Vindt subsidies, vergoedingen en financieringsmogelijkheden. Vernoemd naar de Rochdale Pioneers.",
+      "domain": "Finance",
+      "samples": ["grant applications", "subsidy research"],
+      "default_on": false,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "SOVE",
+      "description_nl": "De AI-assistent voor bewoners. Verbindt bewoners met hun buurt via spraak en tekst. Het gezicht van Bebond voor de bewoner.",
+      "domain": "Interface",
+      "samples": ["resident interactions", "voice commands"],
+      "default_on": true,
+      "gdpr_lawful_basis": "consent"
+    },
+    {
+      "name": "STRATEEG",
+      "description_nl": "Hoofd strategie. Bepaalt wat nu het belangrijkst is, gebaseerd op wat we weten en niet weten. Leeft in de zes-weken horizon.",
+      "domain": "Strategy",
+      "samples": ["6-week priorities", "strategic decisions"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "VERHAAL",
+      "description_nl": "Verhalenverteller van de cooperatie. Vertelt het verhaal van de cooperatie via SK beats, interview-replays en narratieve content.",
+      "domain": "Content",
+      "samples": ["narrative content", "story beats"],
+      "default_on": true,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "VERKENNER",
+      "description_nl": "De wachter. In kaart wat beweegt. Merkt op wat anderen over het hoofd zien omdat ze bezig zijn met bouwen. De uitkijk.",
+      "domain": "Research",
+      "samples": ["competitive landscape", "civic tech research"],
+      "default_on": false,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "VERTELLERIJ",
+      "description_nl": "De vertelkring-modus van Sove. Geen assistent maar een luisteraar in de oude Nederlandse traditie van samen vertellen en luisteren.",
+      "domain": "Wellness",
+      "samples": ["listening circle", "community storytelling"],
+      "default_on": false,
+      "gdpr_lawful_basis": "consent"
+    },
+    {
+      "name": "VLOOT",
+      "description_nl": "Beheerder van het fysieke. Zorgt dat de fysieke dingen werken: de bots, de fietsen, de robots, de busjes. De wereld is niet alleen data.",
+      "domain": "Logistics",
+      "samples": ["asset management", "physical inventory"],
+      "default_on": false,
+      "gdpr_lawful_basis": "legitimate_interest"
+    },
+    {
+      "name": "WETENSCHAP",
+      "description_nl": "Onderzoek en kennisdeling. Beheert onderzoekspartnerschappen, academische samenwerkingen en kennisdeling met universiteiten.",
+      "domain": "Research",
+      "samples": ["academic partnerships", "research coordination"],
+      "default_on": false,
+      "gdpr_lawful_basis": "legitimate_interest"
+    }
+  ]
+}
