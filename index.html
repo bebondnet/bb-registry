@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bebond Registry</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #21262d;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #3fb950;
+  --accent3: #d2a8ff;
+  --warn: #f0883e;
+  --red: #f85149;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header { border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+header .logo { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+header .logo span { color: var(--accent); }
+nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+nav a { color: var(--text2); font-size: 0.9rem; padding: 0.25rem 0.5rem; border-radius: 6px; }
+nav a:hover { color: var(--text); background: var(--bg3); text-decoration: none; }
+nav a.active { color: var(--accent); background: var(--bg3); }
+
+.search-bar { margin-left: auto; }
+.search-bar input { background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.8rem; border-radius: 6px; width: 220px; font-size: 0.9rem; }
+.search-bar input::placeholder { color: var(--text2); }
+.search-bar input:focus { outline: none; border-color: var(--accent); }
+
+main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+.section-title { font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600; }
+.section-title span { color: var(--accent); }
+
+.hero { text-align: center; padding: 3rem 1rem; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.hero h1 span { color: var(--accent); }
+.hero p { color: var(--text2); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; }
+
+.stats { display: flex; gap: 2rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat .num { font-size: 2rem; font-weight: 700; }
+.stat .label { color: var(--text2); font-size: 0.85rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+
+.card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; cursor: pointer; transition: border-color 0.2s, transform 0.1s; }
+.card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.card .card-name { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.25rem; }
+.card .card-desc { color: var(--text2); font-size: 0.85rem; margin-bottom: 0.75rem; }
+.card .card-meta { display: flex; gap: 0.75rem; flex-wrap: wrap; font-size: 0.8rem; }
+.tag { background: var(--bg3); color: var(--text2); padding: 0.15rem 0.5rem; border-radius: 4px; }
+.tag.green { color: var(--accent2); }
+.tag.orange { color: var(--warn); }
+.tag.red { color: var(--red); }
+.tag.purple { color: var(--accent3); }
+
+.detail { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; }
+.detail h2 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+.detail .detail-subtitle { color: var(--text2); margin-bottom: 1.5rem; }
+.detail h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 1.5rem 0 0.5rem; }
+.detail p, .detail li { color: var(--text2); font-size: 0.9rem; }
+.detail ul { padding-left: 1.25rem; }
+.detail li { margin-bottom: 0.25rem; }
+.detail .meta-grid { display: grid; grid-template-columns: 140px 1fr; gap: 0.5rem 1rem; }
+.detail .meta-grid dt { color: var(--text2); font-size: 0.85rem; }
+.detail .meta-grid dd { font-size: 0.9rem; }
+
+.gdpr-block { background: var(--bg3); border-radius: 8px; padding: 1rem; margin-top: 1rem; }
+.gdpr-block h4 { color: var(--accent3); margin-bottom: 0.5rem; }
+.gdpr-block .gdpr-row { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; }
+.gdpr-block .gdpr-item { flex: 1; min-width: 150px; }
+.gdpr-block .gdpr-label { color: var(--text2); font-size: 0.8rem; }
+
+.embed-code { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem; font-family: 'SF Mono', Consolas, monospace; font-size: 0.8rem; color: var(--accent2); margin-top: 0.5rem; word-break: break-all; white-space: pre-wrap; }
+
+.preview-frame { width: 100%; height: 300px; border: 1px solid var(--border); border-radius: 8px; margin-top: 0.5rem; background: #fff; }
+
+.back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text2); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back-link:hover { color: var(--accent); text-decoration: none; }
+
+.souls-explainer { max-width: 700px; }
+.souls-explainer h3 { color: var(--accent); margin: 1.5rem 0 0.5rem; font-size: 1rem; }
+.souls-explainer p { color: var(--text2); }
+
+footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text2); font-size: 0.8rem; margin-top: 3rem; }
+footer a { color: var(--text2); }
+
+@media (max-width: 600px) {
+  header { padding: 0.75rem 1rem; }
+  main { padding: 1rem; }
+  .hero h1 { font-size: 1.75rem; }
+  .grid { grid-template-columns: 1fr; }
+  .search-bar input { width: 160px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="#/" class="logo"><span>bb</span> registry</a>
+  <nav id="nav"></nav>
+  <div class="search-bar"><input id="search" type="text" placeholder="Search fragments, workers, agents…"></div>
+</header>
+<main id="app"></main>
+<footer>
+  <p>Bebond Cooperatie UA &middot; <a href="https://bebond.net">bebond.net</a> &middot; <a href="https://registry.bebond.net/registry.json">registry.json</a> &middot; <a href="https://github.com/bebondnet/bb-registry">source</a></p>
+</footer>
+<script>
+const NAV = [
+  { hash: '#/fragments', label: 'Fragments' },
+  { hash: '#/workers', label: 'Workers' },
+  { hash: '#/agents', label: 'Agents' },
+  { hash: '#/souls', label: 'SOULs' },
+];
+
+let REG = null;
+const $ = s => document.querySelector(s);
+const app = $('#app');
+
+async function loadRegistry() {
+  if (REG) return REG;
+  const r = await fetch('./registry.json');
+  REG = await r.json();
+  return REG;
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = String(s); return d.innerHTML; }
+function slug(s) { return s.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, ''); }
+
+function statusTag(s) {
+  const m = { deployed: 'green', live: 'green', spec: 'orange', dns_pending: 'orange', deprecated: 'red' };
+  return `<span class="tag ${m[s]||''}">${esc(s)}</span>`;
+}
+
+function navRender(active) {
+  $('#nav').innerHTML = NAV.map(n => `<a href="${n.hash}" class="${n.hash===active?'active':''}">${n.label}</a>`).join('');
+}
+
+function hero() {
+  return `<div class="hero">
+    <h1><span>bb</span> registry</h1>
+    <p>The canonical home for every Bebond fragment, worker, and agent. Three audiences: developers embedding widgets, org owners managing their setup, and end users understanding what's active.</p>
+    <div class="stats">
+      <div class="stat"><div class="num" style="color:var(--accent)">${REG.fragments.length}</div><div class="label">Fragments</div></div>
+      <div class="stat"><div class="num" style="color:var(--accent2)">${REG.workers.length}</div><div class="label">Workers</div></div>
+      <div class="stat"><div class="num" style="color:var(--accent3)">${REG.agents.length}</div><div class="label">Agents</div></div>
+    </div>
+    <div class="grid">
+      <a href="#/fragments" class="card" style="text-decoration:none">
+        <div class="card-name" style="color:var(--accent)">Fragments</div>
+        <div class="card-desc">All bb-* web components. Embeddable widgets for your site.</div>
+        <div class="card-meta"><span class="tag green">${REG.fragments.filter(f=>f.status==='deployed').length} deployed</span><span class="tag orange">${REG.fragments.filter(f=>f.status==='spec').length} spec'd</span></div>
+      </a>
+      <a href="#/workers" class="card" style="text-decoration:none">
+        <div class="card-name" style="color:var(--accent2)">Workers</div>
+        <div class="card-desc">All CF Workers in the Bebond stack. APIs, MCPs, services.</div>
+        <div class="card-meta"><span class="tag green">${REG.workers.filter(w=>w.status==='live').length} live</span></div>
+      </a>
+      <a href="#/agents" class="card" style="text-decoration:none">
+        <div class="card-name" style="color:var(--accent3)">Agents</div>
+        <div class="card-desc">The 24 canonical agents. Plain Dutch: what they do, what they read, what they don't.</div>
+        <div class="card-meta"><span class="tag green">${REG.agents.filter(a=>a.default_on).length} default on</span></div>
+      </a>
+    </div>
+  </div>`;
+}
+
+function fragmentCard(f) {
+  return `<a href="#/fragments/${f.name}" class="card" style="text-decoration:none">
+    <div class="card-name">${esc(f.display_name)}</div>
+    <div class="card-desc">${esc(f.description_nl||f.description)}</div>
+    <div class="card-meta">${statusTag(f.status)}${f.version?`<span class="tag">v${esc(f.version)}</span>`:''} ${f.hosts&&f.hosts.length?`<span class="tag purple">${esc(f.hosts.join(', '))}</span>`:''}</div>
+  </a>`;
+}
+
+function workerCard(w) {
+  return `<a href="#/workers/${slug(w.name)}" class="card" style="text-decoration:none">
+    <div class="card-name">${esc(w.display_name)}</div>
+    <div class="card-desc">${esc(w.description_nl||w.description)}</div>
+    <div class="card-meta">${statusTag(w.status)} <span class="tag">${esc(w.base_url.replace('https://',''))}</span></div>
+  </a>`;
+}
+
+function agentCard(a) {
+  return `<a href="#/agents/${a.name}" class="card" style="text-decoration:none">
+    <div class="card-name">${esc(a.name)}</div>
+    <div class="card-desc">${esc(a.description_nl)}</div>
+    <div class="card-meta"><span class="tag ${a.default_on?'green':'orange'}">${a.default_on?'Standaard aan':'Uitgeschakeld'}</span> <span class="tag purple">${esc(a.domain)}</span></div>
+  </a>`;
+}
+
+function gdprBlock(g, complianceTicket) {
+  if (!g) return '';
+  return `<div class="gdpr-block">
+    <h4>GDPR Transparency</h4>
+    <div class="gdpr-row">
+      <div class="gdpr-item"><div class="gdpr-label">Reads</div><div>${g.reads&&g.reads.length?g.reads.map(esc).join(', '):'None'}</div></div>
+      <div class="gdpr-item"><div class="gdpr-label">Stores</div><div>${g.stores&&g.stores.length?g.stores.map(esc).join(', '):'None'}</div></div>
+      <div class="gdpr-item"><div class="gdpr-label">Shares</div><div>${g.shares&&g.shares.length?g.shares.map(esc).join(', '):'None'}</div></div>
+      <div class="gdpr-item"><div class="gdpr-label">Lawful basis</div><div>${esc(g.lawful_basis)}</div></div>
+      <div class="gdpr-item"><div class="gdpr-label">Retention</div><div>${esc(g.retention)}</div></div>
+    </div>
+    ${complianceTicket?`<div style="margin-top:0.5rem;font-size:0.8rem;color:var(--text2)">Compliance ticket: <a href="https://mcp.bebond.net/issue/${esc(complianceTicket)}">${esc(complianceTicket)}</a></div>`:''}
+  </div>`;
+}
+
+function fragmentDetail(f) {
+  const embedCode = f.cdn_url ? `&lt;script src="${esc(f.cdn_url)}"&gt;&lt;/script&gt;\n&lt;${esc(f.name)}&gt;&lt;/${esc(f.name)}&gt;` : 'Not yet available — fragment not on CDN';
+  return `<a href="#/fragments" class="back-link">&larr; All fragments</a>
+  <div class="detail">
+    <h2>${esc(f.display_name)}</h2>
+    <div class="detail-subtitle">${esc(f.name)} &middot; v${esc(f.version)} &middot; ${statusTag(f.status)}</div>
+    <p>${esc(f.description)}</p>
+    ${f.description_nl?`<p style="margin-top:0.5rem;font-style:italic">${esc(f.description_nl)}</p>`:''}
+    <h3>Details</h3>
+    <dl class="meta-grid">
+      <dt>Deploy route</dt><dd><code>${esc(f.deploy_route)}</code></dd>
+      <dt>Source</dt><dd><code>${esc(f.source||'N/A')}</code></dd>
+      <dt>Hosts</dt><dd>${f.hosts&&f.hosts.length?f.hosts.map(esc).join(', '):'None yet'}</dd>
+      ${f.cdn_url?`<dt>CDN URL</dt><dd><code>${esc(f.cdn_url)}</code></dd>`:''}
+    </dl>
+    <h3>Embed code</h3>
+    <div class="embed-code">${embedCode}</div>
+    ${f.cdn_url?`<h3>Live preview</h3><iframe class="preview-frame" sandbox="allow-scripts allow-same-origin" src="${esc(f.cdn_url.replace('@latest.js','.html'))}"></iframe>`:''}
+    ${gdprBlock(f.gdpr, f.compliance_ticket)}
+  </div>`;
+}
+
+function workerDetail(w) {
+  return `<a href="#/workers" class="back-link">&larr; All workers</a>
+  <div class="detail">
+    <h2>${esc(w.display_name)}</h2>
+    <div class="detail-subtitle">${esc(w.name)} &middot; ${statusTag(w.status)}</div>
+    <p>${esc(w.description)}</p>
+    ${w.description_nl?`<p style="margin-top:0.5rem;font-style:italic">${esc(w.description_nl)}</p>`:''}
+    <h3>Details</h3>
+    <dl class="meta-grid">
+      <dt>Base URL</dt><dd><a href="${esc(w.base_url)}">${esc(w.base_url)}</a></dd>
+      <dt>Auth</dt><dd><code>${esc(w.auth)}</code></dd>
+      <dt>Source</dt><dd><code>${esc(w.source)}</code></dd>
+      ${w.openapi_url?`<dt>OpenAPI spec</dt><dd><a href="${esc(w.openapi_url)}">${esc(w.openapi_url)}</a></dd>`:''}
+    </dl>
+  </div>`;
+}
+
+function agentDetail(a) {
+  return `<a href="#/agents" class="back-link">&larr; All agents</a>
+  <div class="detail">
+    <h2>${esc(a.name)}</h2>
+    <div class="detail-subtitle">${esc(a.domain)} &middot; <span class="tag ${a.default_on?'green':'orange'}">${a.default_on?'Standaard aan':'Uitgeschakeld'}</span></div>
+    <p>${esc(a.description_nl)}</p>
+    <h3>Signals sampled</h3>
+    <ul>${a.samples&&a.samples.length?a.samples.map(s=>`<li>${esc(s)}</li>`).join(''):'<li>None documented</li>'}</ul>
+    <h3>Privacy</h3>
+    <dl class="meta-grid">
+      <dt>Lawful basis</dt><dd>${esc(a.gdpr_lawful_basis)}</dd>
+      <dt>Default state</dt><dd>${a.default_on?'On — user can disable in account':'Off — user must enable'}</dd>
+      <dt>Manage</dt><dd><a href="https://account.bebond.net/agents">account.bebond.net/agents</a></dd>
+    </dl>
+    ${gdprBlock({reads:a.samples||[],stores:[],shares:[],lawful_basis:a.gdpr_lawful_basis,retention:'session'},null)}
+  </div>`;
+}
+
+function soulsPage() {
+  return `<div class="souls-explainer">
+    <div class="section-title"><span>SOULs</span> — What is a SOUL?</div>
+    <p>A SOUL is the personality definition for a Bebond agent. Each of the 24 canonical agents has a SOUL file — a markdown document that defines who they are, how they speak, and what they care about.</p>
+    <h3>How SOULs work</h3>
+    <p>SOULs are plain markdown files stored at <code>bebond-agents/souls/&lt;name&gt;.md</code>. When an agent activates, it reads its SOUL to understand its identity and behavioural constraints. SOULs are not code — they are narrative instructions that shape how an agent interacts with residents, organisations, and other agents.</p>
+    <h3>SOUL vs Agent</h3>
+    <p>An <strong>agent</strong> is the running process — the CF Worker or chat session. A <strong>SOUL</strong> is its personality. One agent always has exactly one SOUL. The SOUL determines tone, boundaries, and domain expertise.</p>
+    <h3>Browse SOULs</h3>
+    <p>The full list of 24 agents and their SOULs is on the <a href="#/agents">Agents page</a>. Each agent detail page describes what the SOUL does and what signals it reads.</p>
+    <h3>VRM Avatars</h3>
+    <p>Each organisation can assign a VRM avatar to represent their agents visually. Browse and purchase VRM models in <a href="https://sove.bebond.net/hub">Sove Hub</a>. One VRM per org — all agents share the same visual representation.</p>
+    <h3>Source</h3>
+    <p><code>~/Projects/bebond-agents/souls/</code> &middot; <a href="https://github.com/bebondnet/bebond-agents">bebondnet/bebond-agents</a></p>
+  </div>`;
+}
+
+function searchResults(q) {
+  if (!q) return '';
+  const ql = q.toLowerCase();
+  const frags = REG.fragments.filter(f => f.name.toLowerCase().includes(ql) || (f.description_nl||f.description).toLowerCase().includes(ql));
+  const workers = REG.workers.filter(w => w.name.toLowerCase().includes(ql) || (w.description_nl||w.description).toLowerCase().includes(ql));
+  const agents = REG.agents.filter(a => a.name.toLowerCase().includes(ql) || a.description_nl.toLowerCase().includes(ql));
+  let html = `<div class="section-title">Search: <span>${esc(q)}</span></div>`;
+  if (frags.length) { html += `<h3 style="margin-bottom:0.75rem;color:var(--accent)">Fragments</h3><div class="grid">${frags.map(fragmentCard).join('')}</div>`; }
+  if (workers.length) { html += `<h3 style="margin-bottom:0.75rem;color:var(--accent2)">Workers</h3><div class="grid">${workers.map(workerCard).join('')}</div>`; }
+  if (agents.length) { html += `<h3 style="margin-bottom:0.75rem;color:var(--accent3)">Agents</h3><div class="grid">${agents.map(agentCard).join('')}</div>`; }
+  if (!frags.length && !workers.length && !agents.length) html += `<p style="color:var(--text2)">No results for "${esc(q)}"</p>`;
+  return html;
+}
+
+async function route() {
+  await loadRegistry();
+  const hash = location.hash || '#/';
+  const parts = hash.slice(2).split('/');
+  const section = parts[0];
+  const item = parts[1];
+
+  navRender('#/'+section);
+
+  if (!section || section === '') {
+    app.innerHTML = hero();
+  } else if (section === 'fragments') {
+    if (item) {
+      const f = REG.fragments.find(f => f.name === item);
+      app.innerHTML = f ? fragmentDetail(f) : `<p>Fragment "${esc(item)}" not found.</p>`;
+    } else {
+      app.innerHTML = `<div class="section-title">All <span>Fragments</span></div><div class="grid">${REG.fragments.map(fragmentCard).join('')}</div>`;
+    }
+  } else if (section === 'workers') {
+    if (item) {
+      const w = REG.workers.find(w => slug(w.name) === item);
+      app.innerHTML = w ? workerDetail(w) : `<p>Worker "${esc(item)}" not found.</p>`;
+    } else {
+      app.innerHTML = `<div class="section-title">All <span>Workers</span></div><div class="grid">${REG.workers.map(workerCard).join('')}</div>`;
+    }
+  } else if (section === 'agents') {
+    if (item) {
+      const a = REG.agents.find(a => a.name === item);
+      app.innerHTML = a ? agentDetail(a) : `<p>Agent "${esc(item)}" not found.</p>`;
+    } else {
+      app.innerHTML = `<div class="section-title">All <span>Agents</span></div><div class="grid">${REG.agents.map(agentCard).join('')}</div>`;
+    }
+  } else if (section === 'souls') {
+    app.innerHTML = soulsPage();
+  } else if (section === 'search') {
+    app.innerHTML = searchResults(decodeURIComponent(item||''));
+  } else {
+    app.innerHTML = hero();
+  }
+}
+
+$('#search').addEventListener('input', e => {
+  const q = e.target.value.trim();
+  if (q.length >= 2) {
+    location.hash = '#/search/' + encodeURIComponent(q);
+  } else if (!q) {
+    location.hash = '#/';
+  }
+});
+
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
