@@ -168,10 +168,31 @@
         "lawful_basis": "legitimate_interest",
         "retention": "session"
       },
-      "compliance_ticket": "BEB-728"
-    }
-  ],
-  "workers": [
+"compliance_ticket": "BEB-728"
+},
+{
+"name": "storymate-launcher",
+"display_name": "StoryMate Launcher",
+"version": "1.0.0",
+"description": "Launch story workflows with a 2x2 card grid: Continue Story, My Stories, New Story, Create Character. Triggered by natural-language phrases like 'story mode' or 'verhaal'.",
+"description_nl": "Start verhaal-workflows met een 2x2 kaartenraster: Doorgaan, Mijn verhalen, Nieuw verhaal, Maak een personage. Geactiveerd door natuurlijke taal zoals 'verhaal' of 'story mode'.",
+"cdn_url": "",
+"deploy_route": "fragment-storymate-launcher.alex-rollin.workers.dev",
+"docs_url": "https://registry.bebond.net/fragments/storymate-launcher",
+"source": "alexrollin/fragment-storymate-launcher",
+"status": "deployed",
+"hosts": ["lab-chat", "sove"],
+"gdpr": {
+"reads": ["story state (in-flight flag, char count)", "cookie: bb_key"],
+"stores": [],
+"shares": [],
+"lawful_basis": "legitimate_interest",
+"retention": "session"
+},
+"compliance_ticket": "BEB-901"
+}
+],
+"workers": [
     {
       "name": "bebond-api",
       "display_name": "Bebond API",
