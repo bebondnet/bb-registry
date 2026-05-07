@@ -1,3 +1,7 @@
 /registry.json
-  Access-Control-Allow-Origin: *
-  Content-Type: application/json
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+
+/*.js
+Access-Control-Allow-Origin: *
+Content-Type: application/javascript
