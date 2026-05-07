@@ -2,6 +2,6 @@
 Access-Control-Allow-Origin: *
 Content-Type: application/json
 
-/*.js
+/dir-trigger.js
 Access-Control-Allow-Origin: *
 Content-Type: application/javascript
