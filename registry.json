@@ -1,6 +1,6 @@
 {
-  "version": "2026-04-27",
-  "updated": "2026-04-26",
+  "version": "2026-05-07",
+  "updated": "2026-05-07",
   "fragments": [
     {
       "name": "da-gateway",
@@ -190,6 +190,258 @@
 "retention": "session"
 },
 "compliance_ticket": "BEB-901"
+  },
+  {
+    "name": "sove-site-check",
+    "display_name": "Sove Site Check",
+    "version": "1.0.0",
+    "description": "First step of the Sove onboarding chain. Reads org website + sites table, shows NEEDS_URL / NEEDS_CONNECT / CONNECTED status. Lets user set or update their website URL.",
+    "description_nl": "Eerste stap van de Sove-onboarding. Leest org-website + sites-tabel, toont NEEDS_URL / NEEDS_CONNECT / CONNECTED status. Laat de gebruiker hun website-URL instellen of bijwerken.",
+    "cdn_url": "",
+    "deploy_route": "fragment-sove-site-check.alex-rollin.workers.dev",
+    "docs_url": "https://registry.bebond.net/fragments/sove-site-check",
+    "source": "alexrollin/sove-onboarding-fragments",
+    "status": "deployed",
+    "hosts": ["sove"],
+    "gdpr": {
+      "reads": ["org data", "site list", "cookie: bb_key, bb_org"],
+      "stores": [],
+      "shares": [],
+      "lawful_basis": "legitimate_interest",
+      "retention": "session"
+    },
+    "compliance_ticket": "BEB-903"
+  },
+  {
+    "name": "sove-gd-detect",
+    "display_name": "Sove GD Detect",
+    "version": "1.0.0",
+    "description": "Detects whether a WordPress site runs GeoDirectory. HTTP probe to /wp-json/geodir/v2/ with fallback page scrape for geodir- markers.",
+    "description_nl": "Detecteert of een WordPress-site GeoDirectory draait. HTTP-probe op /wp-json/geodir/v2/ met fallback page-scrape op geodir- markers.",
+    "cdn_url": "",
+    "deploy_route": "fragment-sove-gd-detect.alex-rollin.workers.dev",
+    "docs_url": "https://registry.bebond.net/fragments/sove-gd-detect",
+    "source": "alexrollin/sove-onboarding-fragments",
+    "status": "deployed",
+    "hosts": ["sove"],
+    "gdpr": {
+      "reads": ["website URL (from query param)", "cookie: bb_key, bb_org"],
+      "stores": [],
+      "shares": [],
+      "lawful_basis": "legitimate_interest",
+      "retention": "session"
+    },
+    "compliance_ticket": "BEB-903"
+  },
+  {
+    "name": "sove-deliver-bb-agent",
+    "display_name": "Sove Deliver BB Agent",
+    "version": "1.0.0",
+    "description": "Download card for the Bebond Agent WordPress plugin. Shows plugin URL, copy-to-clipboard, and deep link to WP plugin-install page.",
+    "description_nl": "Download-kaart voor de Bebond Agent WordPress-plug-in. Toont plug-in-URL, kopieer-naar-klembord en dieplink naar WP plug-in-installatiepagina.",
+    "cdn_url": "",
+    "deploy_route": "fragment-sove-deliver-bb-agent.alex-rollin.workers.dev",
+    "docs_url": "https://registry.bebond.net/fragments/sove-deliver-bb-agent",
+    "source": "alexrollin/sove-onboarding-fragments",
+    "status": "deployed",
+    "hosts": ["sove"],
+    "gdpr": {
+      "reads": ["website URL (from query param)", "cookie: bb_key, bb_org"],
+      "stores": [],
+      "shares": [],
+      "lawful_basis": "legitimate_interest",
+      "retention": "session"
+    },
+    "compliance_ticket": "BEB-903"
+  },
+  {
+    "name": "sove-connect-oauth",
+    "display_name": "Sove Connect OAuth",
+    "version": "1.0.0",
+    "description": "Polls bebond-api sites table every 3s to detect when the OAuth round-trip completes and the site is verified. Max 120 polls with skip button.",
+    "description_nl": "Pollt bebond-api sites-tabel elke 3s om te detecteren wanneer de OAuth-round-trip voltooid is en de site geverifieerd is. Max 120 polls met skip-knop.",
+    "cdn_url": "",
+    "deploy_route": "fragment-sove-connect-oauth.alex-rollin.workers.dev",
+    "docs_url": "https://registry.bebond.net/fragments/sove-connect-oauth",
+    "source": "alexrollin/sove-onboarding-fragments",
+    "status": "deployed",
+    "hosts": ["sove"],
+    "gdpr": {
+      "reads": ["org sites (verified status)", "cookie: bb_key, bb_org"],
+      "stores": [],
+      "shares": [],
+      "lawful_basis": "legitimate_interest",
+      "retention": "session"
+    },
+    "compliance_ticket": "BEB-903"
+  },
+  {
+    "name": "sove-kapper-mode",
+    "display_name": "Sove Kapper Mode",
+    "version": "1.0.0",
+    "description": "8-step kapper-vertical setup: verify GD, flush permalinks, activate addons, create fields, configure search, create search page, set up appointments, apply template. Each step calls WP REST via bb-agent.",
+    "description_nl": "8-staps kapper-verticale installatie: verifieer GD, flush permalinks, activeer add-ons, maak velden aan, configureer zoekfunctie, maak zoekpagina, stel afspraken in, pas template toe. Elke stap roept WP REST via bb-agent.",
+    "cdn_url": "",
+    "deploy_route": "fragment-sove-kapper-mode.alex-rollin.workers.dev",
+    "docs_url": "https://registry.bebond.net/fragments/sove-kapper-mode",
+    "source": "alexrollin/sove-onboarding-fragments",
+    "status": "deployed",
+    "hosts": ["sove"],
+    "gdpr": {
+      "reads": ["website URL", "org data", "cookie: bb_key, bb_org"],
+      "stores": ["WP setup state (via bb-agent REST)"],
+      "shares": [],
+      "lawful_basis": "consent",
+      "retention": "session"
+    },
+    "compliance_ticket": "BEB-903"
+  },
+  {
+    "name": "sove-onboarding-summary",
+    "display_name": "Sove Onboarding Summary",
+    "version": "1.0.0",
+    "description": "Final step of the Sove onboarding chain. Shows completion checklist, next steps (opening hours, first listing, first booking), and deep links to WP admin / GD listings / AI search demo.",
+    "description_nl": "Laatste stap van de Sove-onboarding. Toont voltooiingschecklist, volgende stappen (openingstijden, eerste listing, eerste boeking) en dieplinks naar WP-beheer / GD-listings / AI-zoekdemo.",
+    "cdn_url": "",
+"deploy_route": "fragment-sove-onboarding-summary.alex-rollin.workers.dev",
+"docs_url": "https://registry.bebond.net/fragments/sove-onboarding-summary",
+"source": "alexrollin/sove-onboarding-fragments",
+"status": "deployed",
+"hosts": ["sove"],
+"gdpr": {
+"reads": ["website URL", "org data", "cookie: bb_key, bb_org"],
+"stores": [],
+"shares": [],
+"lawful_basis": "legitimate_interest",
+"retention": "session"
+},
+"compliance_ticket": "BEB-903"
+},
+{
+"name": "directory-search",
+"display_name": "Directory Search",
+"version": "1.0.0",
+"description": "Search NL places by city and keyword. Proxies to maps.bebond.net/places. First step in the directory agent workflow.",
+"description_nl": "Zoek NL-plaatsen op stad en trefwoord. Proxyt naar maps.bebond.net/places. Eerste stap in de directory-agent workflow.",
+"cdn_url": "",
+"deploy_route": "fragment-directory-search.alex-rollin.workers.dev",
+"docs_url": "https://registry.bebond.net/fragments/directory-search",
+"source": "alexrollin/sove-directory-fragments",
+"status": "deployed",
+"hosts": ["sove", "lab-chat"],
+"gdpr": {
+"reads": ["search queries", "cookie: bb_key"],
+"stores": [],
+"shares": [],
+"lawful_basis": "legitimate_interest",
+"retention": "session"
+},
+"compliance_ticket": "BEB-904"
+},
+{
+"name": "directory-select",
+"display_name": "Directory Select",
+"version": "1.0.0",
+"description": "Checkbox table to select which places to enrich. Listens for directory:search-done, emits directory:selection-changed.",
+"description_nl": "Checkbox-tabel om plaatsen te selecteren voor verrijking. Luistert naar directory:search-done, zendt directory:selection-changed.",
+"cdn_url": "",
+"deploy_route": "fragment-directory-select.alex-rollin.workers.dev",
+"docs_url": "https://registry.bebond.net/fragments/directory-select",
+"source": "alexrollin/sove-directory-fragments",
+"status": "deployed",
+"hosts": ["sove", "lab-chat"],
+"gdpr": {
+"reads": ["place data from parent", "cookie: bb_key"],
+"stores": [],
+"shares": [],
+"lawful_basis": "legitimate_interest",
+"retention": "session"
+},
+"compliance_ticket": "BEB-904"
+},
+{
+"name": "directory-enrich",
+"display_name": "Directory Enrich",
+"version": "1.0.0",
+"description": "Enriches selected places with Google Maps data, contact info, website, or full profile. Concurrent workers with cost summary.",
+"description_nl": "Verrijkt geselecteerde plaatsen met Google Maps-gegevens, contactinformatie, website of volledig profiel. Gelijktijdige werkers met kostensamenvatting.",
+"cdn_url": "",
+"deploy_route": "fragment-directory-enrich.alex-rollin.workers.dev",
+"docs_url": "https://registry.bebond.net/fragments/directory-enrich",
+"source": "alexrollin/sove-directory-fragments",
+"status": "deployed",
+"hosts": ["sove", "lab-chat"],
+"gdpr": {
+"reads": ["place data", "enrichment preferences", "cookie: bb_key"],
+"stores": [],
+"shares": [],
+"lawful_basis": "legitimate_interest",
+"retention": "session"
+},
+"compliance_ticket": "BEB-904"
+},
+{
+"name": "directory-import",
+"display_name": "Directory Import",
+"version": "1.0.0",
+"description": "Imports enriched places into a WordPress site. Fetches org sites, sends to api.bebond.net/v1/sites/:id/import.",
+"description_nl": "Importeert verrijkte plaatsen naar een WordPress-site. Haalt org-sites op, stuurt naar api.bebond.net/v1/sites/:id/import.",
+"cdn_url": "",
+"deploy_route": "fragment-directory-import.alex-rollin.workers.dev",
+"docs_url": "https://registry.bebond.net/fragments/directory-import",
+"source": "alexrollin/sove-directory-fragments",
+"status": "deployed",
+"hosts": ["sove", "lab-chat"],
+"gdpr": {
+"reads": ["site list", "enriched place data", "cookie: bb_key"],
+"stores": ["imported listings"],
+"shares": [],
+"lawful_basis": "consent",
+"retention": "persistent"
+},
+"compliance_ticket": "BEB-904"
+},
+{
+"name": "directory-summary",
+"display_name": "Directory Summary",
+"version": "1.0.0",
+"description": "Session summary with enriched/imported counts, average rating, and CSV export.",
+"description_nl": "Sessiesamenvatting met verrijkte/geïmporteerde aantallen, gemiddelde beoordeling en CSV-export.",
+"cdn_url": "",
+"deploy_route": "fragment-directory-summary.alex-rollin.workers.dev",
+"docs_url": "https://registry.bebond.net/fragments/directory-summary",
+"source": "alexrollin/sove-directory-fragments",
+"status": "deployed",
+"hosts": ["sove", "lab-chat"],
+"gdpr": {
+"reads": ["session data from parent", "cookie: bb_key"],
+"stores": [],
+"shares": [],
+"lawful_basis": "legitimate_interest",
+"retention": "session"
+},
+"compliance_ticket": "BEB-904"
+},
+{
+"name": "directory-credits",
+"display_name": "Directory Credits",
+"version": "1.0.0",
+"description": "Credit balance display for the directory agent workflow. Shows available credits and per-type usage.",
+"description_nl": "Kredietbalans-weergave voor de directory-agent workflow. Toont beschikbare kredieten en gebruik per type.",
+"cdn_url": "",
+"deploy_route": "fragment-directory-credits.alex-rollin.workers.dev",
+"docs_url": "https://registry.bebond.net/fragments/directory-credits",
+"source": "alexrollin/sove-directory-fragments",
+"status": "deployed",
+"hosts": ["sove", "lab-chat"],
+"gdpr": {
+"reads": ["credit balance", "cookie: bb_key"],
+"stores": [],
+"shares": [],
+"lawful_basis": "legitimate_interest",
+"retention": "session"
+},
+"compliance_ticket": "BEB-904"
 }
 ],
 "workers": [
