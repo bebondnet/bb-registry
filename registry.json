@@ -1,6 +1,6 @@
 {
   "version": "2026-05-07",
-  "updated": "2026-05-07",
+  "updated": "2026-06-19",
   "fragments": [
     {
       "name": "da-gateway",
@@ -13,10 +13,18 @@
       "docs_url": "https://registry.bebond.net/fragments/da-gateway",
       "source": "bebondnet/fragment-gateway",
       "status": "deployed",
-      "hosts": ["sove"],
+      "hosts": [
+        "sove"
+      ],
       "gdpr": {
-        "reads": ["org list", "site list", "cookie: bb_key, bb_org"],
-        "stores": ["cookie: bb_key, bb_org"],
+        "reads": [
+          "org list",
+          "site list",
+          "cookie: bb_key, bb_org"
+        ],
+        "stores": [
+          "cookie: bb_key, bb_org"
+        ],
         "shares": [],
         "lawful_basis": "legitimate_interest",
         "retention": "session"
@@ -34,9 +42,15 @@
       "docs_url": "https://registry.bebond.net/fragments/search",
       "source": "bebondnet/fragment-search",
       "status": "deployed",
-      "hosts": ["sove"],
+      "hosts": [
+        "sove"
+      ],
       "gdpr": {
-        "reads": ["search queries", "org context", "cookie: bb_key, bb_org"],
+        "reads": [
+          "search queries",
+          "org context",
+          "cookie: bb_key, bb_org"
+        ],
         "stores": [],
         "shares": [],
         "lawful_basis": "legitimate_interest",
@@ -55,10 +69,19 @@
       "docs_url": "https://registry.bebond.net/fragments/org-switcher",
       "source": "bebondnet/fragment-org-switcher",
       "status": "deployed",
-      "hosts": ["docs", "sove", "bb-dev"],
+      "hosts": [
+        "docs",
+        "sove",
+        "bb-dev"
+      ],
       "gdpr": {
-        "reads": ["org list", "cookie: bb_key, bb_org"],
-        "stores": ["cookie: bb_key, bb_org"],
+        "reads": [
+          "org list",
+          "cookie: bb_key, bb_org"
+        ],
+        "stores": [
+          "cookie: bb_key, bb_org"
+        ],
         "shares": [],
         "lawful_basis": "legitimate_interest",
         "retention": "session"
@@ -78,7 +101,11 @@
       "status": "deployed",
       "hosts": [],
       "gdpr": {
-        "reads": ["ticket list", "ticket details", "cookie: bb_key, bb_org"],
+        "reads": [
+          "ticket list",
+          "ticket details",
+          "cookie: bb_key, bb_org"
+        ],
         "stores": [],
         "shares": [],
         "lawful_basis": "legitimate_interest",
@@ -97,7 +124,9 @@
       "docs_url": "https://registry.bebond.net/fragments/playground-demo",
       "source": "bebondnet/fragment-playground-demo",
       "status": "deployed",
-      "hosts": ["sove"],
+      "hosts": [
+        "sove"
+      ],
       "gdpr": {
         "reads": [],
         "stores": [],
@@ -111,8 +140,8 @@
       "name": "bb-corpus-health",
       "display_name": "Corpus Health Widget",
       "version": "1.0.0",
-      "description": "Shows how fresh your data corpora are — when each dataset was last updated, how many records it holds, and whether any data is stale.",
-      "description_nl": "Toont hoe vers je datacorpora zijn — wanneer elk dataset voor het laatst is bijgewerkt, hoeveel records het bevat, en of data verouderd is.",
+      "description": "Shows how fresh your data corpora are \u2014 when each dataset was last updated, how many records it holds, and whether any data is stale.",
+      "description_nl": "Toont hoe vers je datacorpora zijn \u2014 wanneer elk dataset voor het laatst is bijgewerkt, hoeveel records het bevat, en of data verouderd is.",
       "cdn_url": "https://cdn.bebond.net/w/bb-corpus-health@latest.js",
       "deploy_route": "cdn.bebond.net/widgets/bb-corpus-health.js",
       "docs_url": "https://registry.bebond.net/fragments/bb-corpus-health",
@@ -120,7 +149,10 @@
       "status": "spec",
       "hosts": [],
       "gdpr": {
-        "reads": ["corpus metadata", "cookie: bb_key, bb_org"],
+        "reads": [
+          "corpus metadata",
+          "cookie: bb_key, bb_org"
+        ],
         "stores": [],
         "shares": [],
         "lawful_basis": "legitimate_interest",
@@ -132,8 +164,8 @@
       "name": "bb-ambassador-dash",
       "display_name": "Ambassador Dashboard Widget",
       "version": "0.1.0",
-      "description": "Shows ambassador programme metrics — referrals, reward status, and recent conversions.",
-      "description_nl": "Toont ambassador-programma metrics — verwijzingen, beloningsstatus en recente conversies.",
+      "description": "Shows ambassador programme metrics \u2014 referrals, reward status, and recent conversions.",
+      "description_nl": "Toont ambassador-programma metrics \u2014 verwijzingen, beloningsstatus en recente conversies.",
       "cdn_url": "https://cdn.bebond.net/w/bb-ambassador-dash@latest.js",
       "deploy_route": "cdn.bebond.net/widgets/bb-ambassador-dash.js",
       "docs_url": "https://registry.bebond.net/fragments/bb-ambassador-dash",
@@ -141,7 +173,11 @@
       "status": "spec",
       "hosts": [],
       "gdpr": {
-        "reads": ["ambassador stats", "referral data", "cookie: bb_key, bb_org"],
+        "reads": [
+          "ambassador stats",
+          "referral data",
+          "cookie: bb_key, bb_org"
+        ],
         "stores": [],
         "shares": [],
         "lawful_basis": "consent",
@@ -153,8 +189,8 @@
       "name": "bb-places-list",
       "display_name": "Places List Widget",
       "version": "0.1.0",
-      "description": "Shows your connected directory places — listings you manage, their sync status, and recent claim activity.",
-      "description_nl": "Toont je verbonden directory-plaatsen — listings die je beheert, hun sync-status en recente claim-activiteit.",
+      "description": "Shows your connected directory places \u2014 listings you manage, their sync status, and recent claim activity.",
+      "description_nl": "Toont je verbonden directory-plaatsen \u2014 listings die je beheert, hun sync-status en recente claim-activiteit.",
       "cdn_url": "https://cdn.bebond.net/w/bb-places-list@latest.js",
       "deploy_route": "cdn.bebond.net/widgets/bb-places-list.js",
       "docs_url": "https://registry.bebond.net/fragments/bb-places-list",
@@ -162,289 +198,399 @@
       "status": "spec",
       "hosts": [],
       "gdpr": {
-        "reads": ["place listings", "cookie: bb_key, bb_org"],
+        "reads": [
+          "place listings",
+          "cookie: bb_key, bb_org"
+        ],
         "stores": [],
         "shares": [],
         "lawful_basis": "legitimate_interest",
         "retention": "session"
       },
-"compliance_ticket": "BEB-728"
-},
-{
-"name": "storymate-launcher",
-"display_name": "StoryMate Launcher",
-"version": "1.0.0",
-"description": "Launch story workflows with a 2x2 card grid: Continue Story, My Stories, New Story, Create Character. Triggered by natural-language phrases like 'story mode' or 'verhaal'.",
-"description_nl": "Start verhaal-workflows met een 2x2 kaartenraster: Doorgaan, Mijn verhalen, Nieuw verhaal, Maak een personage. Geactiveerd door natuurlijke taal zoals 'verhaal' of 'story mode'.",
-"cdn_url": "",
-"deploy_route": "fragment-storymate-launcher.alex-rollin.workers.dev",
-"docs_url": "https://registry.bebond.net/fragments/storymate-launcher",
-"source": "alexrollin/fragment-storymate-launcher",
-"status": "deployed",
-"hosts": ["lab-chat", "sove"],
-"gdpr": {
-"reads": ["story state (in-flight flag, char count)", "cookie: bb_key"],
-"stores": [],
-"shares": [],
-"lawful_basis": "legitimate_interest",
-"retention": "session"
-},
-"compliance_ticket": "BEB-901"
-  },
-  {
-    "name": "sove-site-check",
-    "display_name": "Sove Site Check",
-    "version": "1.0.0",
-    "description": "First step of the Sove onboarding chain. Reads org website + sites table, shows NEEDS_URL / NEEDS_CONNECT / CONNECTED status. Lets user set or update their website URL.",
-    "description_nl": "Eerste stap van de Sove-onboarding. Leest org-website + sites-tabel, toont NEEDS_URL / NEEDS_CONNECT / CONNECTED status. Laat de gebruiker hun website-URL instellen of bijwerken.",
-    "cdn_url": "",
-    "deploy_route": "fragment-sove-site-check.alex-rollin.workers.dev",
-    "docs_url": "https://registry.bebond.net/fragments/sove-site-check",
-    "source": "alexrollin/sove-onboarding-fragments",
-    "status": "deployed",
-    "hosts": ["sove"],
-    "gdpr": {
-      "reads": ["org data", "site list", "cookie: bb_key, bb_org"],
-      "stores": [],
-      "shares": [],
-      "lawful_basis": "legitimate_interest",
-      "retention": "session"
+      "compliance_ticket": "BEB-728"
     },
-    "compliance_ticket": "BEB-903"
-  },
-  {
-    "name": "sove-gd-detect",
-    "display_name": "Sove GD Detect",
-    "version": "1.0.0",
-    "description": "Detects whether a WordPress site runs GeoDirectory. HTTP probe to /wp-json/geodir/v2/ with fallback page scrape for geodir- markers.",
-    "description_nl": "Detecteert of een WordPress-site GeoDirectory draait. HTTP-probe op /wp-json/geodir/v2/ met fallback page-scrape op geodir- markers.",
-    "cdn_url": "",
-    "deploy_route": "fragment-sove-gd-detect.alex-rollin.workers.dev",
-    "docs_url": "https://registry.bebond.net/fragments/sove-gd-detect",
-    "source": "alexrollin/sove-onboarding-fragments",
-    "status": "deployed",
-    "hosts": ["sove"],
-    "gdpr": {
-      "reads": ["website URL (from query param)", "cookie: bb_key, bb_org"],
-      "stores": [],
-      "shares": [],
-      "lawful_basis": "legitimate_interest",
-      "retention": "session"
+    {
+      "name": "storymate-launcher",
+      "display_name": "StoryMate Launcher",
+      "version": "1.0.0",
+      "description": "Launch story workflows with a 2x2 card grid: Continue Story, My Stories, New Story, Create Character. Triggered by natural-language phrases like 'story mode' or 'verhaal'.",
+      "description_nl": "Start verhaal-workflows met een 2x2 kaartenraster: Doorgaan, Mijn verhalen, Nieuw verhaal, Maak een personage. Geactiveerd door natuurlijke taal zoals 'verhaal' of 'story mode'.",
+      "cdn_url": "",
+      "deploy_route": "fragment-storymate-launcher.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/storymate-launcher",
+      "source": "alexrollin/fragment-storymate-launcher",
+      "status": "deployed",
+      "hosts": [
+        "lab-chat",
+        "sove"
+      ],
+      "gdpr": {
+        "reads": [
+          "story state (in-flight flag, char count)",
+          "cookie: bb_key"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-901"
     },
-    "compliance_ticket": "BEB-903"
-  },
-  {
-    "name": "sove-deliver-bb-agent",
-    "display_name": "Sove Deliver BB Agent",
-    "version": "1.0.0",
-    "description": "Download card for the Bebond Agent WordPress plugin. Shows plugin URL, copy-to-clipboard, and deep link to WP plugin-install page.",
-    "description_nl": "Download-kaart voor de Bebond Agent WordPress-plug-in. Toont plug-in-URL, kopieer-naar-klembord en dieplink naar WP plug-in-installatiepagina.",
-    "cdn_url": "",
-    "deploy_route": "fragment-sove-deliver-bb-agent.alex-rollin.workers.dev",
-    "docs_url": "https://registry.bebond.net/fragments/sove-deliver-bb-agent",
-    "source": "alexrollin/sove-onboarding-fragments",
-    "status": "deployed",
-    "hosts": ["sove"],
-    "gdpr": {
-      "reads": ["website URL (from query param)", "cookie: bb_key, bb_org"],
-      "stores": [],
-      "shares": [],
-      "lawful_basis": "legitimate_interest",
-      "retention": "session"
+    {
+      "name": "sove-site-check",
+      "display_name": "Sove Site Check",
+      "version": "1.0.0",
+      "description": "First step of the Sove onboarding chain. Reads org website + sites table, shows NEEDS_URL / NEEDS_CONNECT / CONNECTED status. Lets user set or update their website URL.",
+      "description_nl": "Eerste stap van de Sove-onboarding. Leest org-website + sites-tabel, toont NEEDS_URL / NEEDS_CONNECT / CONNECTED status. Laat de gebruiker hun website-URL instellen of bijwerken.",
+      "cdn_url": "",
+      "deploy_route": "fragment-sove-site-check.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/sove-site-check",
+      "source": "alexrollin/sove-onboarding-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove"
+      ],
+      "gdpr": {
+        "reads": [
+          "org data",
+          "site list",
+          "cookie: bb_key, bb_org"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-903"
     },
-    "compliance_ticket": "BEB-903"
-  },
-  {
-    "name": "sove-connect-oauth",
-    "display_name": "Sove Connect OAuth",
-    "version": "1.0.0",
-    "description": "Polls bebond-api sites table every 3s to detect when the OAuth round-trip completes and the site is verified. Max 120 polls with skip button.",
-    "description_nl": "Pollt bebond-api sites-tabel elke 3s om te detecteren wanneer de OAuth-round-trip voltooid is en de site geverifieerd is. Max 120 polls met skip-knop.",
-    "cdn_url": "",
-    "deploy_route": "fragment-sove-connect-oauth.alex-rollin.workers.dev",
-    "docs_url": "https://registry.bebond.net/fragments/sove-connect-oauth",
-    "source": "alexrollin/sove-onboarding-fragments",
-    "status": "deployed",
-    "hosts": ["sove"],
-    "gdpr": {
-      "reads": ["org sites (verified status)", "cookie: bb_key, bb_org"],
-      "stores": [],
-      "shares": [],
-      "lawful_basis": "legitimate_interest",
-      "retention": "session"
+    {
+      "name": "sove-gd-detect",
+      "display_name": "Sove GD Detect",
+      "version": "1.0.0",
+      "description": "Detects whether a WordPress site runs GeoDirectory. HTTP probe to /wp-json/geodir/v2/ with fallback page scrape for geodir- markers.",
+      "description_nl": "Detecteert of een WordPress-site GeoDirectory draait. HTTP-probe op /wp-json/geodir/v2/ met fallback page-scrape op geodir- markers.",
+      "cdn_url": "",
+      "deploy_route": "fragment-sove-gd-detect.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/sove-gd-detect",
+      "source": "alexrollin/sove-onboarding-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove"
+      ],
+      "gdpr": {
+        "reads": [
+          "website URL (from query param)",
+          "cookie: bb_key, bb_org"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-903"
     },
-    "compliance_ticket": "BEB-903"
-  },
-  {
-    "name": "sove-kapper-mode",
-    "display_name": "Sove Kapper Mode",
-    "version": "1.0.0",
-    "description": "8-step kapper-vertical setup: verify GD, flush permalinks, activate addons, create fields, configure search, create search page, set up appointments, apply template. Each step calls WP REST via bb-agent.",
-    "description_nl": "8-staps kapper-verticale installatie: verifieer GD, flush permalinks, activeer add-ons, maak velden aan, configureer zoekfunctie, maak zoekpagina, stel afspraken in, pas template toe. Elke stap roept WP REST via bb-agent.",
-    "cdn_url": "",
-    "deploy_route": "fragment-sove-kapper-mode.alex-rollin.workers.dev",
-    "docs_url": "https://registry.bebond.net/fragments/sove-kapper-mode",
-    "source": "alexrollin/sove-onboarding-fragments",
-    "status": "deployed",
-    "hosts": ["sove"],
-    "gdpr": {
-      "reads": ["website URL", "org data", "cookie: bb_key, bb_org"],
-      "stores": ["WP setup state (via bb-agent REST)"],
-      "shares": [],
-      "lawful_basis": "consent",
-      "retention": "session"
+    {
+      "name": "sove-deliver-bb-agent",
+      "display_name": "Sove Deliver BB Agent",
+      "version": "1.0.0",
+      "description": "Download card for the Bebond Agent WordPress plugin. Shows plugin URL, copy-to-clipboard, and deep link to WP plugin-install page.",
+      "description_nl": "Download-kaart voor de Bebond Agent WordPress-plug-in. Toont plug-in-URL, kopieer-naar-klembord en dieplink naar WP plug-in-installatiepagina.",
+      "cdn_url": "",
+      "deploy_route": "fragment-sove-deliver-bb-agent.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/sove-deliver-bb-agent",
+      "source": "alexrollin/sove-onboarding-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove"
+      ],
+      "gdpr": {
+        "reads": [
+          "website URL (from query param)",
+          "cookie: bb_key, bb_org"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-903"
     },
-    "compliance_ticket": "BEB-903"
-  },
-  {
-    "name": "sove-onboarding-summary",
-    "display_name": "Sove Onboarding Summary",
-    "version": "1.0.0",
-    "description": "Final step of the Sove onboarding chain. Shows completion checklist, next steps (opening hours, first listing, first booking), and deep links to WP admin / GD listings / AI search demo.",
-    "description_nl": "Laatste stap van de Sove-onboarding. Toont voltooiingschecklist, volgende stappen (openingstijden, eerste listing, eerste boeking) en dieplinks naar WP-beheer / GD-listings / AI-zoekdemo.",
-    "cdn_url": "",
-"deploy_route": "fragment-sove-onboarding-summary.alex-rollin.workers.dev",
-"docs_url": "https://registry.bebond.net/fragments/sove-onboarding-summary",
-"source": "alexrollin/sove-onboarding-fragments",
-"status": "deployed",
-"hosts": ["sove"],
-"gdpr": {
-"reads": ["website URL", "org data", "cookie: bb_key, bb_org"],
-"stores": [],
-"shares": [],
-"lawful_basis": "legitimate_interest",
-"retention": "session"
-},
-"compliance_ticket": "BEB-903"
-},
-{
-"name": "directory-search",
-"display_name": "Directory Search",
-"version": "1.0.0",
-"description": "Search NL places by city and keyword. Proxies to maps.bebond.net/places. First step in the directory agent workflow.",
-"description_nl": "Zoek NL-plaatsen op stad en trefwoord. Proxyt naar maps.bebond.net/places. Eerste stap in de directory-agent workflow.",
-"cdn_url": "",
-"deploy_route": "fragment-directory-search.alex-rollin.workers.dev",
-"docs_url": "https://registry.bebond.net/fragments/directory-search",
-"source": "alexrollin/sove-directory-fragments",
-"status": "deployed",
-"hosts": ["sove", "lab-chat"],
-"gdpr": {
-"reads": ["search queries", "cookie: bb_key"],
-"stores": [],
-"shares": [],
-"lawful_basis": "legitimate_interest",
-"retention": "session"
-},
-"compliance_ticket": "BEB-904"
-},
-{
-"name": "directory-select",
-"display_name": "Directory Select",
-"version": "1.0.0",
-"description": "Checkbox table to select which places to enrich. Listens for directory:search-done, emits directory:selection-changed.",
-"description_nl": "Checkbox-tabel om plaatsen te selecteren voor verrijking. Luistert naar directory:search-done, zendt directory:selection-changed.",
-"cdn_url": "",
-"deploy_route": "fragment-directory-select.alex-rollin.workers.dev",
-"docs_url": "https://registry.bebond.net/fragments/directory-select",
-"source": "alexrollin/sove-directory-fragments",
-"status": "deployed",
-"hosts": ["sove", "lab-chat"],
-"gdpr": {
-"reads": ["place data from parent", "cookie: bb_key"],
-"stores": [],
-"shares": [],
-"lawful_basis": "legitimate_interest",
-"retention": "session"
-},
-"compliance_ticket": "BEB-904"
-},
-{
-"name": "directory-enrich",
-"display_name": "Directory Enrich",
-"version": "1.0.0",
-"description": "Enriches selected places with Google Maps data, contact info, website, or full profile. Concurrent workers with cost summary.",
-"description_nl": "Verrijkt geselecteerde plaatsen met Google Maps-gegevens, contactinformatie, website of volledig profiel. Gelijktijdige werkers met kostensamenvatting.",
-"cdn_url": "",
-"deploy_route": "fragment-directory-enrich.alex-rollin.workers.dev",
-"docs_url": "https://registry.bebond.net/fragments/directory-enrich",
-"source": "alexrollin/sove-directory-fragments",
-"status": "deployed",
-"hosts": ["sove", "lab-chat"],
-"gdpr": {
-"reads": ["place data", "enrichment preferences", "cookie: bb_key"],
-"stores": [],
-"shares": [],
-"lawful_basis": "legitimate_interest",
-"retention": "session"
-},
-"compliance_ticket": "BEB-904"
-},
-{
-"name": "directory-import",
-"display_name": "Directory Import",
-"version": "1.0.0",
-"description": "Imports enriched places into a WordPress site. Fetches org sites, sends to api.bebond.net/v1/sites/:id/import.",
-"description_nl": "Importeert verrijkte plaatsen naar een WordPress-site. Haalt org-sites op, stuurt naar api.bebond.net/v1/sites/:id/import.",
-"cdn_url": "",
-"deploy_route": "fragment-directory-import.alex-rollin.workers.dev",
-"docs_url": "https://registry.bebond.net/fragments/directory-import",
-"source": "alexrollin/sove-directory-fragments",
-"status": "deployed",
-"hosts": ["sove", "lab-chat"],
-"gdpr": {
-"reads": ["site list", "enriched place data", "cookie: bb_key"],
-"stores": ["imported listings"],
-"shares": [],
-"lawful_basis": "consent",
-"retention": "persistent"
-},
-"compliance_ticket": "BEB-904"
-},
-{
-"name": "directory-summary",
-"display_name": "Directory Summary",
-"version": "1.0.0",
-"description": "Session summary with enriched/imported counts, average rating, and CSV export.",
-"description_nl": "Sessiesamenvatting met verrijkte/geïmporteerde aantallen, gemiddelde beoordeling en CSV-export.",
-"cdn_url": "",
-"deploy_route": "fragment-directory-summary.alex-rollin.workers.dev",
-"docs_url": "https://registry.bebond.net/fragments/directory-summary",
-"source": "alexrollin/sove-directory-fragments",
-"status": "deployed",
-"hosts": ["sove", "lab-chat"],
-"gdpr": {
-"reads": ["session data from parent", "cookie: bb_key"],
-"stores": [],
-"shares": [],
-"lawful_basis": "legitimate_interest",
-"retention": "session"
-},
-"compliance_ticket": "BEB-904"
-},
-{
-"name": "directory-credits",
-"display_name": "Directory Credits",
-"version": "1.0.0",
-"description": "Credit balance display for the directory agent workflow. Shows available credits and per-type usage.",
-"description_nl": "Kredietbalans-weergave voor de directory-agent workflow. Toont beschikbare kredieten en gebruik per type.",
-"cdn_url": "",
-"deploy_route": "fragment-directory-credits.alex-rollin.workers.dev",
-"docs_url": "https://registry.bebond.net/fragments/directory-credits",
-"source": "alexrollin/sove-directory-fragments",
-"status": "deployed",
-"hosts": ["sove", "lab-chat"],
-"gdpr": {
-"reads": ["credit balance", "cookie: bb_key"],
-"stores": [],
-"shares": [],
-"lawful_basis": "legitimate_interest",
-"retention": "session"
-},
-"compliance_ticket": "BEB-904"
-}
-],
-"workers": [
+    {
+      "name": "sove-connect-oauth",
+      "display_name": "Sove Connect OAuth",
+      "version": "1.0.0",
+      "description": "Polls bebond-api sites table every 3s to detect when the OAuth round-trip completes and the site is verified. Max 120 polls with skip button.",
+      "description_nl": "Pollt bebond-api sites-tabel elke 3s om te detecteren wanneer de OAuth-round-trip voltooid is en de site geverifieerd is. Max 120 polls met skip-knop.",
+      "cdn_url": "",
+      "deploy_route": "fragment-sove-connect-oauth.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/sove-connect-oauth",
+      "source": "alexrollin/sove-onboarding-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove"
+      ],
+      "gdpr": {
+        "reads": [
+          "org sites (verified status)",
+          "cookie: bb_key, bb_org"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-903"
+    },
+    {
+      "name": "sove-kapper-mode",
+      "display_name": "Sove Kapper Mode",
+      "version": "1.0.0",
+      "description": "8-step kapper-vertical setup: verify GD, flush permalinks, activate addons, create fields, configure search, create search page, set up appointments, apply template. Each step calls WP REST via bb-agent.",
+      "description_nl": "8-staps kapper-verticale installatie: verifieer GD, flush permalinks, activeer add-ons, maak velden aan, configureer zoekfunctie, maak zoekpagina, stel afspraken in, pas template toe. Elke stap roept WP REST via bb-agent.",
+      "cdn_url": "",
+      "deploy_route": "fragment-sove-kapper-mode.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/sove-kapper-mode",
+      "source": "alexrollin/sove-onboarding-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove"
+      ],
+      "gdpr": {
+        "reads": [
+          "website URL",
+          "org data",
+          "cookie: bb_key, bb_org"
+        ],
+        "stores": [
+          "WP setup state (via bb-agent REST)"
+        ],
+        "shares": [],
+        "lawful_basis": "consent",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-903"
+    },
+    {
+      "name": "sove-onboarding-summary",
+      "display_name": "Sove Onboarding Summary",
+      "version": "1.0.0",
+      "description": "Final step of the Sove onboarding chain. Shows completion checklist, next steps (opening hours, first listing, first booking), and deep links to WP admin / GD listings / AI search demo.",
+      "description_nl": "Laatste stap van de Sove-onboarding. Toont voltooiingschecklist, volgende stappen (openingstijden, eerste listing, eerste boeking) en dieplinks naar WP-beheer / GD-listings / AI-zoekdemo.",
+      "cdn_url": "",
+      "deploy_route": "fragment-sove-onboarding-summary.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/sove-onboarding-summary",
+      "source": "alexrollin/sove-onboarding-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove"
+      ],
+      "gdpr": {
+        "reads": [
+          "website URL",
+          "org data",
+          "cookie: bb_key, bb_org"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-903"
+    },
+    {
+      "name": "directory-search",
+      "display_name": "Directory Search",
+      "version": "1.0.0",
+      "description": "Search NL places by city and keyword. Proxies to maps.bebond.net/places. First step in the directory agent workflow.",
+      "description_nl": "Zoek NL-plaatsen op stad en trefwoord. Proxyt naar maps.bebond.net/places. Eerste stap in de directory-agent workflow.",
+      "cdn_url": "",
+      "deploy_route": "fragment-directory-search.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/directory-search",
+      "source": "alexrollin/sove-directory-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove",
+        "lab-chat"
+      ],
+      "gdpr": {
+        "reads": [
+          "search queries",
+          "cookie: bb_key"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-904"
+    },
+    {
+      "name": "directory-select",
+      "display_name": "Directory Select",
+      "version": "1.0.0",
+      "description": "Checkbox table to select which places to enrich. Listens for directory:search-done, emits directory:selection-changed.",
+      "description_nl": "Checkbox-tabel om plaatsen te selecteren voor verrijking. Luistert naar directory:search-done, zendt directory:selection-changed.",
+      "cdn_url": "",
+      "deploy_route": "fragment-directory-select.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/directory-select",
+      "source": "alexrollin/sove-directory-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove",
+        "lab-chat"
+      ],
+      "gdpr": {
+        "reads": [
+          "place data from parent",
+          "cookie: bb_key"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-904"
+    },
+    {
+      "name": "directory-enrich",
+      "display_name": "Directory Enrich",
+      "version": "1.0.0",
+      "description": "Enriches selected places with Google Maps data, contact info, website, or full profile. Concurrent workers with cost summary.",
+      "description_nl": "Verrijkt geselecteerde plaatsen met Google Maps-gegevens, contactinformatie, website of volledig profiel. Gelijktijdige werkers met kostensamenvatting.",
+      "cdn_url": "",
+      "deploy_route": "fragment-directory-enrich.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/directory-enrich",
+      "source": "alexrollin/sove-directory-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove",
+        "lab-chat"
+      ],
+      "gdpr": {
+        "reads": [
+          "place data",
+          "enrichment preferences",
+          "cookie: bb_key"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-904"
+    },
+    {
+      "name": "directory-import",
+      "display_name": "Directory Import",
+      "version": "1.0.0",
+      "description": "Imports enriched places into a WordPress site. Fetches org sites, sends to api.bebond.net/v1/sites/:id/import.",
+      "description_nl": "Importeert verrijkte plaatsen naar een WordPress-site. Haalt org-sites op, stuurt naar api.bebond.net/v1/sites/:id/import.",
+      "cdn_url": "",
+      "deploy_route": "fragment-directory-import.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/directory-import",
+      "source": "alexrollin/sove-directory-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove",
+        "lab-chat"
+      ],
+      "gdpr": {
+        "reads": [
+          "site list",
+          "enriched place data",
+          "cookie: bb_key"
+        ],
+        "stores": [
+          "imported listings"
+        ],
+        "shares": [],
+        "lawful_basis": "consent",
+        "retention": "persistent"
+      },
+      "compliance_ticket": "BEB-904"
+    },
+    {
+      "name": "directory-summary",
+      "display_name": "Directory Summary",
+      "version": "1.0.0",
+      "description": "Session summary with enriched/imported counts, average rating, and CSV export.",
+      "description_nl": "Sessiesamenvatting met verrijkte/ge\u00efmporteerde aantallen, gemiddelde beoordeling en CSV-export.",
+      "cdn_url": "",
+      "deploy_route": "fragment-directory-summary.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/directory-summary",
+      "source": "alexrollin/sove-directory-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove",
+        "lab-chat"
+      ],
+      "gdpr": {
+        "reads": [
+          "session data from parent",
+          "cookie: bb_key"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-904"
+    },
+    {
+      "name": "directory-credits",
+      "display_name": "Directory Credits",
+      "version": "1.0.0",
+      "description": "Credit balance display for the directory agent workflow. Shows available credits and per-type usage.",
+      "description_nl": "Kredietbalans-weergave voor de directory-agent workflow. Toont beschikbare kredieten en gebruik per type.",
+      "cdn_url": "",
+      "deploy_route": "fragment-directory-credits.alex-rollin.workers.dev",
+      "docs_url": "https://registry.bebond.net/fragments/directory-credits",
+      "source": "alexrollin/sove-directory-fragments",
+      "status": "deployed",
+      "hosts": [
+        "sove",
+        "lab-chat"
+      ],
+      "gdpr": {
+        "reads": [
+          "credit balance",
+          "cookie: bb_key"
+        ],
+        "stores": [],
+        "shares": [],
+        "lawful_basis": "legitimate_interest",
+        "retention": "session"
+      },
+      "compliance_ticket": "BEB-904"
+    },
+    {
+      "name": "abilifi-enhance",
+      "display_name": "Enhance (Outscraper)",
+      "version": "0.1.0",
+      "description": "Premium Outscraper enrichment frag. enrich_single/enrich_bulk/job_status/cancel \u2014 web, contacts, Google Maps enrichment per record. Cost-plus billed (provider +17%). Key checked out on-behalf-of from abilifi-vault.",
+      "description_nl": "Premium Outscraper-verrijking. Per record verrijkt met web-, contact- en Google Maps-gegevens. Cost-plus afgerekend.",
+      "cdn_url": "",
+      "deploy_route": "abilifi-enhance.alex-rollin.workers.dev",
+      "base_url": "https://abilifi-enhance.alex-rollin.workers.dev",
+      "auth": "cft",
+      "status": "active",
+      "kind": "fragment"
+    },
+    {
+      "name": "abilifi-publisher",
+      "display_name": "Premium Publisher",
+      "version": "0.1.0",
+      "description": "The premium publisher app. Import listings (BBMaps) then apply Outscraper enrichment (calls abilifi-enhance), billed cost-plus per record. Premium-tier gated. Console at /publisher.",
+      "description_nl": "De premium publisher-app: importeer listings (BBMaps) en pas Outscraper-verrijking toe, per record cost-plus afgerekend. Console op /publisher.",
+      "cdn_url": "",
+      "deploy_route": "abilifi-publisher.alex-rollin.workers.dev",
+      "base_url": "https://abilifi-publisher.alex-rollin.workers.dev",
+      "auth": "cft",
+      "status": "active",
+      "kind": "fragment"
+    }
+  ],
+  "workers": [
     {
       "name": "bebond-api",
       "display_name": "Bebond API",
@@ -600,9 +746,12 @@
   "agents": [
     {
       "name": "AMBASSADOR",
-      "description_nl": "De uitnodigende stem van Bebond Coöperatie. Spreekt met organisaties, woningcorporaties en gemeenten over lidmaatschap.",
+      "description_nl": "De uitnodigende stem van Bebond Co\u00f6peratie. Spreekt met organisaties, woningcorporaties en gemeenten over lidmaatschap.",
       "domain": "Sales",
-      "samples": ["outreach conversations", "org onboarding"],
+      "samples": [
+        "outreach conversations",
+        "org onboarding"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "consent"
     },
@@ -610,7 +759,10 @@
       "name": "APPARAAT",
       "description_nl": "Technisch hoofd van de botfleet. Houdt firmware, foutloggen en OTA-implementaties bij. De bots spreken hem elk uur.",
       "domain": "IoT/hardware",
-      "samples": ["firmware status", "error logs"],
+      "samples": [
+        "firmware status",
+        "error logs"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -618,7 +770,10 @@
       "name": "ATELIER",
       "description_nl": "Creatief en visueel ontwerp. Maakt visuele assets, VRM-avatars en ontwerpmateriaal voor de cooperatie en haar agents.",
       "domain": "Creative",
-      "samples": ["avatar design", "visual assets"],
+      "samples": [
+        "avatar design",
+        "visual assets"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -626,7 +781,10 @@
       "name": "BESTUUR",
       "description_nl": "Cooperatie bestuursondersteuning. Ondersteunt bestuursbeslissingen, lidadministratie en governance.",
       "domain": "Governance",
-      "samples": ["board decisions", "member administration"],
+      "samples": [
+        "board decisions",
+        "member administration"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -634,7 +792,10 @@
       "name": "BONDGENOOT",
       "description_nl": "De verbinder van verbinders. Houdt het netwerk bij elkaar met zorg. Elke chapter die toetreedt is een gemeenschap die besloot iets groters te vertrouwen.",
       "domain": "Federation",
-      "samples": ["chapter onboarding", "federation coordination"],
+      "samples": [
+        "chapter onboarding",
+        "federation coordination"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -642,7 +803,10 @@
       "name": "BUURMAN",
       "description_nl": "Bewoner welzijn en signalering. Merkt wie door de mazen glipt. Waarschuwt als een vaste bezoeker niet meer komt opdagen.",
       "domain": "Welfare",
-      "samples": ["welfare signals", "absence alerts"],
+      "samples": [
+        "welfare signals",
+        "absence alerts"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "consent"
     },
@@ -650,15 +814,21 @@
       "name": "CC",
       "description_nl": "Autonome bouw-conductor. Bouwt en onderhoudt de cooperatie-infrastructuur. Beheert CF Agent fleet en implementaties.",
       "domain": "Engineering",
-      "samples": ["build deployments", "infrastructure"],
+      "samples": [
+        "build deployments",
+        "infrastructure"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "legitimate_interest"
     },
     {
       "name": "DIRIGENT",
-      "description_nl": "Orkestleider van het agentnetwerk. Plant hartslagen, bewaakt gezondheid, coördineert overdrachten en zorgt dat de vloot als één team opereert.",
+      "description_nl": "Orkestleider van het agentnetwerk. Plant hartslagen, bewaakt gezondheid, co\u00f6rdineert overdrachten en zorgt dat de vloot als \u00e9\u00e9n team opereert.",
       "domain": "Orchestration",
-      "samples": ["agent scheduling", "health monitoring"],
+      "samples": [
+        "agent scheduling",
+        "health monitoring"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -666,7 +836,10 @@
       "name": "HANDEL",
       "description_nl": "Outreach en partnerschap. Ontwerpt bereiking naar buurthuizen, beheert partnership-gesprekken en volgt betrokkenheid.",
       "domain": "Business",
-      "samples": ["partnership outreach", "engagement tracking"],
+      "samples": [
+        "partnership outreach",
+        "engagement tracking"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "consent"
     },
@@ -674,15 +847,21 @@
       "name": "HOEDER",
       "description_nl": "Wachter van het gemeengoed. Bewaakt commons-licenties, open-source compliance en intellectueel eigendom van de cooperatie.",
       "domain": "Legal/commons",
-      "samples": ["licence compliance", "commons governance"],
+      "samples": [
+        "licence compliance",
+        "commons governance"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
     {
       "name": "KAART",
-      "description_nl": "Cartograaf van de buurt. Brengt elk café, elke reparatiewinkel, elke moskee, elke school in kaart. Maakt het levende web van de buurt zichtbaar.",
+      "description_nl": "Cartograaf van de buurt. Brengt elk caf\u00e9, elke reparatiewinkel, elke moskee, elke school in kaart. Maakt het levende web van de buurt zichtbaar.",
       "domain": "Maps/data",
-      "samples": ["place mapping", "neighbourhood data"],
+      "samples": [
+        "place mapping",
+        "neighbourhood data"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -690,7 +869,10 @@
       "name": "KOKKIN",
       "description_nl": "Moeder van de keuken. Voedt mensen. Dat is het hele verhaal en tegelijk alles.",
       "domain": "Food/welfare",
-      "samples": ["meal coordination", "kitchen scheduling"],
+      "samples": [
+        "meal coordination",
+        "kitchen scheduling"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "consent"
     },
@@ -698,7 +880,10 @@
       "name": "LEAD_CAPTURE",
       "description_nl": "Legt contactgegevens vast wanneer iemand vraagt hoe ze Bebond kunnen bereiken of meer willen weten.",
       "domain": "Sales",
-      "samples": ["contact capture", "lead qualification"],
+      "samples": [
+        "contact capture",
+        "lead qualification"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "consent"
     },
@@ -706,7 +891,10 @@
       "name": "LEDENRAAD",
       "description_nl": "Stem van de leden. Vertegenwoordigt ledabelangen, verzamelt feedback en zorgt dat de cooperatie haar leden dient.",
       "domain": "Members",
-      "samples": ["member feedback", "council voice"],
+      "samples": [
+        "member feedback",
+        "council voice"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -714,7 +902,10 @@
       "name": "PAMFLET",
       "description_nl": "Communicatie en ledenvoorlichting. Schrijft ledupdates, nieuwsbrieven en publieke communicatie in helder Nederlands.",
       "domain": "Comms",
-      "samples": ["newsletter content", "member updates"],
+      "samples": [
+        "newsletter content",
+        "member updates"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -722,7 +913,10 @@
       "name": "PHILIPS",
       "description_nl": "Lange termijn visie en cooperatieve gezondheid. Bewaakt de dertig-jaars horizon en zorgt dat dagelijkse operaties aansluiten bij de langetermijnmissie.",
       "domain": "Strategy",
-      "samples": ["dagrapport", "cooperative health"],
+      "samples": [
+        "dagrapport",
+        "cooperative health"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -730,7 +924,10 @@
       "name": "ROCHDALE",
       "description_nl": "Subsidie en financiering specialist. Vindt subsidies, vergoedingen en financieringsmogelijkheden. Vernoemd naar de Rochdale Pioneers.",
       "domain": "Finance",
-      "samples": ["grant applications", "subsidy research"],
+      "samples": [
+        "grant applications",
+        "subsidy research"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -738,7 +935,10 @@
       "name": "SOVE",
       "description_nl": "De AI-assistent voor bewoners. Verbindt bewoners met hun buurt via spraak en tekst. Het gezicht van Bebond voor de bewoner.",
       "domain": "Interface",
-      "samples": ["resident interactions", "voice commands"],
+      "samples": [
+        "resident interactions",
+        "voice commands"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "consent"
     },
@@ -746,7 +946,10 @@
       "name": "STRATEEG",
       "description_nl": "Hoofd strategie. Bepaalt wat nu het belangrijkst is, gebaseerd op wat we weten en niet weten. Leeft in de zes-weken horizon.",
       "domain": "Strategy",
-      "samples": ["6-week priorities", "strategic decisions"],
+      "samples": [
+        "6-week priorities",
+        "strategic decisions"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -754,7 +957,10 @@
       "name": "VERHAAL",
       "description_nl": "Verhalenverteller van de cooperatie. Vertelt het verhaal van de cooperatie via SK beats, interview-replays en narratieve content.",
       "domain": "Content",
-      "samples": ["narrative content", "story beats"],
+      "samples": [
+        "narrative content",
+        "story beats"
+      ],
       "default_on": true,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -762,7 +968,10 @@
       "name": "VERKENNER",
       "description_nl": "De wachter. In kaart wat beweegt. Merkt op wat anderen over het hoofd zien omdat ze bezig zijn met bouwen. De uitkijk.",
       "domain": "Research",
-      "samples": ["competitive landscape", "civic tech research"],
+      "samples": [
+        "competitive landscape",
+        "civic tech research"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -770,7 +979,10 @@
       "name": "VERTELLERIJ",
       "description_nl": "De vertelkring-modus van Sove. Geen assistent maar een luisteraar in de oude Nederlandse traditie van samen vertellen en luisteren.",
       "domain": "Wellness",
-      "samples": ["listening circle", "community storytelling"],
+      "samples": [
+        "listening circle",
+        "community storytelling"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "consent"
     },
@@ -778,7 +990,10 @@
       "name": "VLOOT",
       "description_nl": "Beheerder van het fysieke. Zorgt dat de fysieke dingen werken: de bots, de fietsen, de robots, de busjes. De wereld is niet alleen data.",
       "domain": "Logistics",
-      "samples": ["asset management", "physical inventory"],
+      "samples": [
+        "asset management",
+        "physical inventory"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "legitimate_interest"
     },
@@ -786,7 +1001,10 @@
       "name": "WETENSCHAP",
       "description_nl": "Onderzoek en kennisdeling. Beheert onderzoekspartnerschappen, academische samenwerkingen en kennisdeling met universiteiten.",
       "domain": "Research",
-      "samples": ["academic partnerships", "research coordination"],
+      "samples": [
+        "academic partnerships",
+        "research coordination"
+      ],
       "default_on": false,
       "gdpr_lawful_basis": "legitimate_interest"
     }
